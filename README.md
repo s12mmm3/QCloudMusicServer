@@ -26,6 +26,28 @@
 
 - [Qt 6.9+](https://www.qt.io/download-qt-installer)
 
+## 使用说明
+
+运行`QCloudMusicServer`
+
+浏览器访问`http://localhost:3000/song/dynamic/cover?id=2101179024`
+
+返回结果
+```
+{
+    "code": 200,
+    "data": {
+        "height": 0,
+        "needTransition": true,
+        "videoPlayUrl": "http://dcover.music.126.net/4e94/a0a4/86a0/4f8994c7397cce4306fa3d40474863da.mp4?wsSecret=1bbd9bdee053836dae0ebc976bd1a131&wsTime=1745088713",
+        "weight": 0
+    },
+    "message": ""
+}
+```
+
+接口可参考[原项目文档](https://binaryify.github.io/NeteaseCloudMusicApi)
+
 ## 编译方式
 
 ```Shell
