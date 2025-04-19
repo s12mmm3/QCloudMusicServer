@@ -16,11 +16,6 @@ jobs:
       # 矩阵配置
       matrix:
         include:
-          # 6.7.2
-          - qt_version: 6.7.2
-            qt_arch: win64_msvc2019_64
-            arch: x64
-            modules: 'qthttpserver qtwebsockets'
           # 6.9.0
           - qt_version: 6.9.0
             qt_arch: win64_msvc2022_64
