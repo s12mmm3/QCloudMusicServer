@@ -3,6 +3,7 @@
 基于Qt实现的 网易云音乐API HTTP服务器
 
 [![GitHub Actions CI Status](https://github.com/s12mmm3/QCloudMusicServer/actions/workflows/windows.yml/badge.svg)](https://github.com/s12mmm3/QCloudMusicServer/actions/workflows/windows.yml)
+[![GitHub Actions CI Status](https://github.com/s12mmm3/QCloudMusicServer/actions/workflows/macos.yml/badge.svg)](https://github.com/s12mmm3/QCloudMusicServer/actions/workflows/macos.yml)
 
 ![C++ version](https://img.shields.io/badge/C++-11-00599C?logo=++)
 [![Qt version](https://img.shields.io/badge/Qt-6.9+-41CD52?logo=qt)](https://www.qt.io)
@@ -10,9 +11,9 @@
 
 ## 简介
 
-基于网易云API实现的HTTP服务器，使用Qt QHttpServer库实现
+基于[Qt版 网易云音乐 API](https://github.com/s12mmm3/QCloudMusicApi)和QHttpServer库实现的HTTP服务器
 
-支持跨平台和多种编译器编译，基于[Qt版 网易云音乐 API](https://github.com/s12mmm3/QCloudMusicApi)实现
+支持跨平台和多种编译器编译
 
 ### 目录
 
@@ -28,7 +29,7 @@
 
 ## 使用说明
 
-运行`QCloudMusicServer`
+运行`QCloudMusicServer`启动服务器
 
 浏览器访问`http://localhost:3000/song/dynamic/cover?id=2101179024`
 
