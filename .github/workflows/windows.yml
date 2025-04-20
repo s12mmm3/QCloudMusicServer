@@ -77,8 +77,7 @@ jobs:
           # tree /F
 
           # 拷贝依赖
-          windeployqt ${{ env.assume }} --qmldir . --no-translations --compiler-runtime ${{ env.path }}/bin/QCloudMusicApi.dll
-          windeployqt ${{ env.assume }} --qmldir . --no-translations --compiler-runtime ${{ env.path }}/bin/QCloudMusicServer.exe
+          windeployqt ${{ env.assume }} --qmldir . --no-translations --compiler-runtime ${{ env.path }}/QCloudMusicServer.exe
       # tag 查询github-Release
       # 上传artifacts          
       - uses: actions/upload-artifact@v4
