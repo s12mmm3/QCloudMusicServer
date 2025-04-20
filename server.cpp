@@ -25,12 +25,15 @@ void Server::serveNcmApi(QVariantMap options)
 {
     QCommandLineParser parser;
     QCommandLineOption portOption(QStringList() << "PORT",
-        QCoreApplication::translate("main", "Set PORT."),
-        QCoreApplication::translate("main", "PORT"), "3000");
+                                  QCoreApplication::translate("main", "Set PORT."),
+                                  QCoreApplication::translate("main", "PORT"), "3000");
     QCommandLineOption hostOption(QStringList() << "HOST",
-        QCoreApplication::translate("main", "Set HOST."),
-        QCoreApplication::translate("main", "HOST"));
-    parser.addOptions({ portOption, hostOption });
+                                  QCoreApplication::translate("main", "Set HOST."),
+                                  QCoreApplication::translate("main", "HOST"));
+    QCommandLineOption corsOption(QStringList() << "CORS_ALLOW_ORIGIN",
+                                  QCoreApplication::translate("main", "Set CORS_ALLOW_ORIGIN."),
+                                  QCoreApplication::translate("main", "CORS_ALLOW_ORIGIN"));
+    parser.addOptions({ portOption, hostOption, corsOption });
     parser.process(*QCoreApplication::instance());
 
     // 端口号
@@ -39,7 +42,7 @@ void Server::serveNcmApi(QVariantMap options)
         : !parser.value(hostOption).isEmpty() ? QHostAddress(parser.value(hostOption))
         : QHostAddress::Any;
 
-    consturctServer({});
+    consturctServer({ { "CORS_ALLOW_ORIGIN", parser.value(corsOption) } });
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
     auto tcpserver = new QTcpServer();
     if (tcpserver->listen(host, port) && server.bind(tcpserver)) {
@@ -61,14 +64,7 @@ void Server::serveNcmApi(QVariantMap options)
 
 void Server::consturctServer(QVariantMap options)
 {
-    QCommandLineParser parser;
-    QCommandLineOption option(QStringList() << "CORS_ALLOW_ORIGIN",
-        QCoreApplication::translate("main", "Set CORS_ALLOW_ORIGIN."),
-        QCoreApplication::translate("main", "CORS_ALLOW_ORIGIN"));
-    parser.addOptions({ option });
-    parser.process(*QCoreApplication::instance());
-
-    const QString CORS_ALLOW_ORIGIN = parser.value(option);
+    const QString CORS_ALLOW_ORIGIN = options.value("CORS_ALLOW_ORIGIN").toString();
 
     // 设置请求的路径和方法未知时的错误提示
 

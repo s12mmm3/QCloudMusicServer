@@ -29,12 +29,22 @@
 
 ## 使用说明
 
-运行`QCloudMusicServer`启动服务器
+直接运行服务器
+
+```shell
+QCloudMusicServer
+```
+
+服务器启动默认端口为 3000，更换端口/域名可使用以下命令: 
+
+```shell
+QCloudMusicServer --PORT 4000 --HOST 127.0.0.1
+```
 
 浏览器访问`http://localhost:3000/song/dynamic/cover?id=2101179024`
 
 返回结果
-```
+```json
 {
     "code": 200,
     "data": {
