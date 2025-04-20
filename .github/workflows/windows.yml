@@ -91,7 +91,7 @@ jobs:
         id: package
         shell: pwsh
         env:
-          path: ${{ github.workspace }}/${{ env.BUILD_PATH }}/${{ env.BUILD_TYPE }}/bin
+          path: ${{ github.workspace }}/${{ env.BUILD_PATH }}/${{ env.BUILD_TYPE }}
         run: |
           # 打包zip
           Compress-Archive -Path ${{ env.path }}/* ${{ env.archiveName }}
