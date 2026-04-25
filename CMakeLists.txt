@@ -35,8 +35,8 @@ endif()
 # 设置第三方仓库
 include_directories(3rdparty)
 
-set(BUILD_SHARED_LIBS OFF)
-set(MUSICAPI_TEST OFF)
+set(QCLOUDMUSICAPI_BUILD_SHARED OFF CACHE BOOL "Build QCloudMusicApi as a shared library" FORCE)
+set(QCLOUDMUSICAPI_BUILD_TEST OFF CACHE BOOL "Build QCloudMusicApi tests" FORCE)
 add_subdirectory(3rdparty/QCloudMusicApi)
 include_directories(3rdparty/QCloudMusicApi)
 
